@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Type } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { HttpProviderService } from '../Service/http-provider.service';
 import { IfStmt } from '@angular/compiler';
@@ -23,8 +24,8 @@ import { IfStmt } from '@angular/compiler';
     <button type="button" ngbAutofocus class="btn btn-success" (click)="modal.close('Ok click')">OK</button>
   </div>
   `,
-  //templateUrl: './home.component.html',
-  //styleUrls: ['./home.component.scss']
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class NgModalConfirm {
   constructor(public modal: NgbActiveModal) {}

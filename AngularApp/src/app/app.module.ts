@@ -8,7 +8,10 @@ import { AddFunctionalityComponent } from './add-functionality/add-functionality
 import { EditFunctionalityComponent } from './edit-functionality/edit-functionality.component';
 import { ViewFunctionalityComponent } from './view-functionality/view-functionality.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule} from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { FormsModule} from '@angular/forms'
     HomeComponent,
     AddFunctionalityComponent,
     EditFunctionalityComponent,
-    ViewFunctionalityComponent
+    ViewFunctionalityComponent, 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgbModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,79 @@
-<p>edit-functionality works!</p>
+<div class="container-x1">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>Update Functionality</b></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" routerLink="/Home" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i>Back</a>
+                    </div>
+                </div>
+            </div>
+            <form #functionalityForm="ngForm">
+                <div>
+                    <div>
+                        <div>
+                            <label for="Name" class="p-t-b-10">Name <span class="requriedStar">*</span> </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="from-control" id="Name" required maxlength="255"
+                            [(ngModel)]="editFunctionalityForm.Name" name="Name" #Name="ngModel">
+                            <div *ngIf="Name.errors && isSubmitted" class="alert alert-danger ValidationError">
+                                <div [hidden]="!Name.errors['required']">
+                                        Name is required for functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="Description" class="p-t-b-10">Description<span class="requriedStar">*</span> </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="from-control" id="Description" required maxlength="255"
+                            [(ngModel)]="editFunctionalityForm.Description" name="Description" #Description="ngModel">
+                            <div *ngIf="Description.errors && isSubmitted" class="alert alert-danger ValidationError">
+                                <div [hidden]="!Description.errors['required']">
+                                    Description is required for functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="Type" class="p-t-b-10">Type<span class="requriedStar">*</span> </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="from-control" id="Type" required maxlength="255"
+                            [(ngModel)]="editFunctionalityForm.Type" name="Type" #Type="ngModel">
+                            <div *ngIf="Type.errors && isSubmitted" class="alert alert-danger ValidationError">
+                                <div [hidden]="!Type.errors['required']">
+                                    Type is required for functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="Note" class="p-t-b-10">Note<span class="requriedStar">*</span> </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="from-control" id="Note" required maxlength="255"
+                            [(ngModel)]="editFunctionalityForm.Note" name="Note" #Note="ngModel">
+                            <div *ngIf="Note.errors && isSubmitted" class="alert alert-danger ValidationError">
+                                <div [hidden]="!Note.errors['required']">
+                                    Note is required for functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-footer">
+                        <button class="btn btn-success" (click)="EditFunctionality(functionalityForm.form.valid)">Submit</button>
+                      </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

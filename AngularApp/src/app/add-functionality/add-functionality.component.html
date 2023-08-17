@@ -1,1 +1,79 @@
-<p>add-functionality works!</p>
+<div class="container-x1">
+    <div class="table_resonsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>New Functionality</b></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#" routerLink="/Home" class="btn btn-success back"><i class="fas fa-arrow-circle-left"></i>Back</a>
+                    </div>
+                </div>
+            </div>
+            <form #functionalityForm="ngForm">
+                <div class="table-content">
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Name" class="p-t--b-10">Name <span class="requiredStar">*</span> </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Name" required maxlength="255" 
+                            [(ngModel)]="addFunctionalityForm.Name" name="Name" #Name="ngModel">
+                            <div *ngIf="Name.errors && isSubmitted" class="alert alert-danger validationError"> 
+                                <div [hidden]="!Name.errors['required']">
+                                    Name is required for this functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Description" class="p-t--b-10">Description <span class="requiredStar">*</span> </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Description" required maxlength="255" 
+                            [(ngModel)]="addFunctionalityForm.Description" name="Description" #Description="ngModel">
+                            <div *ngIf="Description.errors && isSubmitted" class="alert alert-danger validationError"> 
+                                <div [hidden]='!Description.errors["required"]'>
+                                    Description is required for this functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Type" class="p-t--b-10">Type <span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Type" required maxlength="255" 
+                            [(ngModel)]="addFunctionalityForm.Type" name="Type" #Type="ngModel">
+                            <div *ngIf="Type.errors && isSubmitted" class="alert alert-danger validationError"> 
+                                <div [hidden]='!Type.errors["required"]'>
+                                    Type is required for this functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Note" class="p-t--b-10">Note <span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="Note" required maxlength="255" 
+                            [(ngModel)]="addFunctionalityForm.Note" name="Note" #Note="ngModel">
+                            <div *ngIf="Note.errors && isSubmitted" class="alert alert-danger validationError"> 
+                                <div [hidden]='!Note.errors["required"]'>
+                                    Note is required for this functionality
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-footer">
+                        <button class="btn btn-success" (click)="AddFunctionality(functionalityForm.form.valid)">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
