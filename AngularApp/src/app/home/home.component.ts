@@ -6,27 +6,6 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpProviderService } from '../Service/http-provider.service';
 import { IfStmt } from '@angular/compiler';
 
-
-@Component({
-  selector: 'ng-modal-confrim',
-  template: `
-  <div class="modal-header">
-    <h5 class="modal-title" id="modal-title">Delete Confirmation</h5>
-    <button type="button" class="btn close" aria-label="Close button" aria-describedby="modal-title" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <p>Are you sure you want to delete?</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel click')">CANCEL</button>
-    <button type="button" ngbAutofocus class="btn btn-success" (click)="modal.close('Ok click')">OK</button>
-  </div>
-  `,
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
-})
 export class NgModalConfirm {
   constructor(public modal: NgbActiveModal) {}
 }
@@ -46,27 +25,26 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private modalServices: NgbModal, private toastr: ToastrService, private httpProvider: HttpProviderService) {}
 
   ngOnInit(): void {
-    this.getAllFunctionality();
-  }
-  async getAllFunctionality() {
-    this.httpProvider.getAllFunctionality().subscribe((data: any) => {
-      if(data != null && data.body != null) {
-        var resultData = data.body;
-        if(resultData) {
-          this.functionalityList = resultData;
-        }
-      }
+    let functionality = [{
+      Nazwa: "Szybka Rezerwacja",
+      Description: "Umożliwia klientom dokonanie natychmiastowej rezerwacji usług lub produktów bez konieczności rejestracji, zwiększając konwersje i usprawniając proces zakupowy.",
+      Type: "Usprawnienie procesu zakupowego.",
+      Note: "Brak przypisu do Kanbana"
     },
-    (error: any) => {
-      if(error) {
-        if(error.status == 404) {
-          if(error.error && error.error.message){
-            this.functionalityList = [];
-          }
-        }
-      }
-    });
-  }
+    {
+      Nazwa: "Indywidualne Rekomendacje",
+      Description: "Wykorzystuje algorytmy uczenia maszynowego do analizy zachowań klientów i dostarczania spersonalizowanych rekomendacji produktów lub treści, zwiększając zaangażowanie i sprzedaż.",
+      Type: "Udoskonalenie obsługi klienta.",
+      Note: "Brak przypisu do Kanbana"
+    },
+    {
+      Nazwa: "Wirtualne Przymierzanie",
+      Description: "Tworzy wirtualne środowisko, w którym klienci mogą przymierzyć odzież lub akcesoria za pomocą rzeczywistości rozszerzonej, poprawiając interakcję ze sklepem internetowym i redukując zwroty.",
+      Type: "Innowacyjne rozwiązanie technologiczne.",
+      Note: "Brak przypisu do Kanbana"
+    }];
+  };
+  
   AddFunctionality() {
     this.router.navigate(['AddFunctionality']);
   }
@@ -87,14 +65,10 @@ export class HomeComponent implements OnInit {
         var resultData = data.body;
         if(resultData != null && resultData.isSuccess) {
           this.toastr.success(resultData.message);
-          this.getAllFunctionality();
+          //this.getAllFunctionality();
         }
       }
     },
     (error:any) => {});
   }
-
-
-  
-
 }
