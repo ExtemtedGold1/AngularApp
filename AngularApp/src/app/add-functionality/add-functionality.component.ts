@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpProviderService } from '../Service/http-provider.service';
-import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-add-functionality',
@@ -16,9 +15,16 @@ export class AddFunctionalityComponent implements OnInit {
   @ViewChild("functionalityForm")
   functionalityForm!: NgForm;
   isSubmitted: boolean = false;
-  constructor(private router: Router, private httpProvider: HttpProviderService, private toastr: ToastrService) {}
+
+
+  constructor(
+    private router: Router,
+    private httpProvider: HttpProviderService,
+    private toastr: ToastrService
+  ) {}
 
   ngOnInit(): void {}
+
     
   AddFunctionality(isValid: any){
     this.isSubmitted = true;
@@ -29,6 +35,7 @@ export class AddFunctionalityComponent implements OnInit {
             var resultData = data.body;
             if(resultData != null && resultData.isSuccess) {
               this.toastr.success(resultData.message);
+              //this.addFunctionalityToList(resultData.data);
               setTimeout(() => {
                 this.router.navigate(['/Home']);
               }, 500);

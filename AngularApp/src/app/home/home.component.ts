@@ -20,6 +20,9 @@ const MODALS: { [name: string]: Type<any> } = {
 })
 
 export class HomeComponent implements OnInit {
+  addFunctionalityForm: functionalityForm = new functionalityForm();
+  
+  isSubmitted: boolean = false;
   closeResault = '';
   functionalityList: any = [];
   constructor(
@@ -30,24 +33,28 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.functionalityList = [{
+      Id: 1,
       Name: "Szybka Rezerwacja",
       Description: "Umożliwia klientom dokonanie natychmiastowej rezerwacji usług lub produktów bez konieczności rejestracji, zwiększając konwersje i usprawniając proces zakupowy.",
       Type: "Usprawnienie procesu zakupowego.",
       Note: "Brak przypisu do Kanbana"
     },
     {
+      Id: 2,
       Name: "Indywidualne Rekomendacje",
       Description: "Wykorzystuje algorytmy uczenia maszynowego do analizy zachowań klientów i dostarczania spersonalizowanych rekomendacji produktów lub treści, zwiększając zaangażowanie i sprzedaż.",
       Type: "Udoskonalenie obsługi klienta.",
       Note: "Brak przypisu do Kanbana"
     },
     {
+      Id: 3,
       Name: "Wirtualne Przymierzanie",
       Description: "Tworzy wirtualne środowisko, w którym klienci mogą przymierzyć odzież lub akcesoria za pomocą rzeczywistości rozszerzonej, poprawiając interakcję ze sklepem internetowym i redukując zwroty.",
       Type: "Innowacyjne rozwiązanie technologiczne.",
       Note: "Brak przypisu do Kanbana"
     },
     {
+      Id: 4,
       Name: "Edit",
       Description: "Edit",
       Type: "Edit",
@@ -57,7 +64,13 @@ export class HomeComponent implements OnInit {
   
   goToAddFunctionality() {
     this.router.navigate(['AddFunctionality']);
+    
   }
+
+  viewFunctionality() {
+    this.router.navigate(['ViewFunctionality'])
+  }
+
 
   deleteFunctionalityConfirmation(functionality: any){
     this.modalServices.open(MODALS['deleteModal'],
@@ -67,6 +80,14 @@ export class HomeComponent implements OnInit {
       this.deleteFunctionality(functionality);
     },
     (reason) => {});
+  }
+
+  AddFunctionality(isValid: any){
+    this.isSubmitted = true;
+    if(isValid) {
+      this.functionalityList.push(this.addFunctionalityForm);
+      
+    }
   }
 
   deleteFunctionality(functionality: any) {
@@ -81,4 +102,12 @@ export class HomeComponent implements OnInit {
     },
     (error:any) => {});
   }
+}
+
+export class functionalityForm {
+  Name: String = "";
+  Description: String = "";
+  Type: String = "";
+  Note: string = "";
+
 }
