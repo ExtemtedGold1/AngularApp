@@ -52,6 +52,12 @@ export class WebApiService {
         catchError(this.handleError)
       );
   }
+
+  getFunctionalityDetailById(funcitonalityId: any): Observable<any> {
+    const url= 'Home/ViewFunctionality';
+    return this.get(url);
+  }
+
   private ReturnResponseData(response: any){
     return response;
   }

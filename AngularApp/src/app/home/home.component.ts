@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Type } from '@angular/core';
+import { Component, Input, OnInit, Type, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -21,15 +21,26 @@ const MODALS: { [name: string]: Type<any> } = {
 
 export class HomeComponent implements OnInit {
   addFunctionalityForm: functionalityForm = new functionalityForm();
+  isHiddenMain: boolean = false;
+  isHidden: boolean = true;
+  showNotification: boolean = false;
+  notificationMessage: string = '';
+  Id: Number = 0;
+  viewHidden: boolean = true;
   
   isSubmitted: boolean = false;
   closeResault = '';
-  functionalityList: any = [];
+   @Input() functionalityList: any[] = [];
+   @Input() functionalityId: any[] = [];
+
   constructor(
     private router: Router,
     private modalServices: NgbModal,
     private toastr: ToastrService,
-    private httpProvider: HttpProviderService) {}
+    private httpProvider: HttpProviderService
+    ) { }
+
+    @Output() functionalityListChange: EventEmitter<any[]> = new EventEmitter<any[]>();
 
   ngOnInit(): void {
     this.functionalityList = [{
@@ -63,48 +74,56 @@ export class HomeComponent implements OnInit {
   };
   
   goToAddFunctionality() {
-    this.router.navigate(['AddFunctionality']);
+    //this.router.navigate(['AddFunctionality']);
     
   }
 
+  showViewFunctionality(){
+    this.viewHidden = !this.viewHidden;
+  }
+
   viewFunctionality() {
-    this.router.navigate(['ViewFunctionality'])
+    this.isHiddenMain = !this.isHiddenMain;
+    this.isHidden = !this.isHidden;
   }
 
 
-  deleteFunctionalityConfirmation(functionality: any){
-    this.modalServices.open(MODALS['deleteModal'],
-    {
-      ariaLabelledBy: 'modal-basic-title'
-    }).result.then((result) => {
-      this.deleteFunctionality(functionality);
-    },
-    (reason) => {});
-  }
+  // deleteFunctionalityConfirmation(functionality: any){
+  //   this.modalServices.open(MODALS['deleteModal'],
+  //   {
+  //     ariaLabelledBy: 'modal-basic-title'
+  //   }).result.then((result) => {
+  //     this.deleteFunctionality(functionality);
+  //   },
+  //   (reason) => {});
+  // }
 
   AddFunctionality(isValid: any){
     this.isSubmitted = true;
     if(isValid) {
       this.functionalityList.push(this.addFunctionalityForm);
-      
+      console.log;
+      this.showNotification = true;
+      this.notificationMessage = 'Dodano poprawnie do listy!';
+      this.functionalityListChange.emit(this.functionalityList);      
     }
   }
 
-  deleteFunctionality(functionality: any) {
-    this.httpProvider.deleteFunctionalityById(functionality.id).subscribe((data: any) => {
-      if(data != null && data.body != null) {
-        var resultData = data.body;
-        if(resultData != null && resultData.isSuccess) {
-          this.toastr.success(resultData.message);
-          //this.getAllFunctionality();
-        }
-      }
-    },
-    (error:any) => {});
-  }
+  // deleteFunctionality(functionality: any) {
+  //   this.httpProvider.deleteFunctionalityById(functionality.id).subscribe((data: any) => {
+  //     if(data != null && data.body != null) {
+  //       var resultData = data.body;
+  //       if(resultData != null && resultData.isSuccess) {
+  //         this.toastr.success(resultData.message);
+  //         //this.getAllFunctionality();
+  //       }
+  //     }
+  //   },
+  //   (error:any) => {});
+  // }
 }
-
 export class functionalityForm {
+  Id: number = 0;
   Name: String = "";
   Description: String = "";
   Type: String = "";

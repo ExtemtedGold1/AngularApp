@@ -1,6 +1,5 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HttpProviderService } from '../Service/http-provider.service';
 import { WebApiService } from '../Service/web-api.service';
 
 @Component({
@@ -9,27 +8,23 @@ import { WebApiService } from '../Service/web-api.service';
   styleUrls: ['./view-functionality.component.scss']
 })
 export class ViewFunctionalityComponent implements OnInit {
-  
-  functionalityId: any;
-  functionalityDetail: any=[];
+  @Input() functionalityList: any[] = [];
+  @Input() functionalityId: any;
 
-  constructor(public webApiService: WebApiService, private route: ActivatedRoute, private httpProvider : HttpProviderService) {}
+  functionalityDetail: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    private webApiService: WebApiService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.functionalityId = this.route.snapshot.params['functionalityId'];
-    this.getFunctionalityDetailById();
-  }
+    this.functionalityDetail=this.functionalityList.find(item => item.Id === this.functionalityId);
+    this.functionalityDetail=this.functionalityList[this.functionalityId];
+    console.log(this.functionalityList);
+    console.log(this.functionalityId);
+    
 
-  getFunctionalityDetailById() {
-    this.httpProvider.getFunctionalityDetailById(this.functionalityId).subscribe((data : any ) => {
-      if(data != null && data.body != null) {
-        var resultData = data.body;
-        if(resultData) {
-          this.functionalityDetail = resultData;
-        }
-      }
-    }, 
-    (error : any) => {});
   }
-
 }

@@ -3,7 +3,6 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HttpProviderService } from '../Service/http-provider.service';
-//import { functionalityForm } from '../add-functionality/add-functionality.component';
 
 @Component({
   selector: 'app-edit-functionality',

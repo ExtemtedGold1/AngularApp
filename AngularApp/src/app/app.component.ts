@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularApp';
+  parentFunctionalityList: any[] =[];
+
+  handleFunctionalityListChange(updatedList: any[]) {
+    this.parentFunctionalityList = updatedList;
+  }
 }

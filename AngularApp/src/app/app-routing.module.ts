@@ -8,9 +8,9 @@ import { ViewFunctionalityComponent } from './view-functionality/view-functional
 const routes: Routes = [
   { path: '', redirectTo: 'Home', pathMatch: 'full'},
   { path: 'Home', component: HomeComponent  },
-  { path: 'ViewFunctionality/:funcitonalityId', component: ViewFunctionalityComponent },
+  { path: 'Home/ViewFunctionality', component: ViewFunctionalityComponent },
   { path: 'AddFunctionality' , component: AddFunctionalityComponent },
-  { path: 'EditFunctionality/:funcitonalityId', component: EditFunctionalityComponent}
+  { path: 'EditFunctionality', component: EditFunctionalityComponent}
 ];
 
 @NgModule({
