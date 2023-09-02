@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { WelcomeTextComponent } from './welcome-text.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('WelcomeTextComponent', () => {
+  let component: WelcomeTextComponent;
+  let fixture: ComponentFixture<WelcomeTextComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ WelcomeTextComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(WelcomeTextComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

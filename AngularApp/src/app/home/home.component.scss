@@ -1,1 +1,14 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+.home-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../assets/Sprinkle-background.svg);
+}
+
+.home-box {
+    padding: 0px;
+    border-radius: 0px;
+    box-shadow: 0 10px 10px rgba(63, 155, 75, 0.801), 0 10px 10px rgba(0, 0, 0, 0.22);
+    width: 800px;
+}
