@@ -1,0 +1,10 @@
+<div class="edit-functionality-inside">
+    <h1 class="title">Edit functionality name</h1>
+    <div>
+        <input type="text" [(ngModel)]="name" placeholder="Old Functionality Name" />
+    </div>
+    <div class="edit-functionality-buttons">
+        <button class="btn btn-outline-danger">Cancel</button>
+        <button class="btn btn-outline-success" (click)="updateFunctionality()">Save Changes</button>
+    </div>
+</div>

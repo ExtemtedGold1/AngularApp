@@ -21,9 +21,10 @@ export class ViewFunctionalityComponent implements OnInit {
 
   ngOnInit(): void {
     this.functionalityDetail=this.functionalityList.find(item => item.Id === this.functionalityId);
-    this.functionalityDetail=this.functionalityList[this.functionalityId];
-    console.log(this.functionalityList);
-    console.log(this.functionalityId);
+    //this.functionalityDetail=this.functionalityList[this.functionalityId];
+    console.log(this.functionalityDetail);
+    //console.log(this.functionalityList);
+    //console.log(this.functionalityId);
     
 
   }

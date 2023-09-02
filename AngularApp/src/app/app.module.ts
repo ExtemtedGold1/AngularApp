@@ -1,34 +1,60 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { AddFunctionalityComponent } from './add-functionality/add-functionality.component';
-import { EditFunctionalityComponent } from './edit-functionality/edit-functionality.component';
-import { ViewFunctionalityComponent } from './view-functionality/view-functionality.component';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './home/navbar/navbar.component';
+import { WelcomeTextComponent } from './home/welcome-text/welcome-text.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardNavbarComponent } from './dashboard/dashboard-navbar/dashboard-navbar.component';
+import { DashboardSidebarComponent } from './dashboard/dashboard-sidebar/dashboard-sidebar.component';
+import { DashboardContentComponent } from './dashboard/dashboard-content/dashboard-content.component';
+import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToastrModule } from 'ngx-toastr';
+import { MatMenuModule } from '@angular/material/menu';
+import {MatTreeModule} from '@angular/material/tree';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditDialogFunctionalitiesComponent } from './dashboard/dashboard-content/edit-dialog-functionalities/edit-dialog-functionalities.component';
+import { AddDialogTasksComponent } from './dashboard/dashboard-content/add-dialog-tasks/add-dialog-tasks.component';
+import { AddDialogFunctionalitiesComponent } from './dashboard/dashboard-content/add-dialog-functionalities/add-dialog-functionalities.component';
+import { EditDialogTasksComponent } from './dashboard/dashboard-content/edit-dialog-tasks/edit-dialog-tasks.component';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AddFunctionalityComponent,
-    EditFunctionalityComponent,
-    ViewFunctionalityComponent, 
+    NavbarComponent,
+    WelcomeTextComponent,
+    DashboardComponent,
+    DashboardNavbarComponent,
+    DashboardSidebarComponent,
+    DashboardContentComponent,
+    EditDialogFunctionalitiesComponent,
+    AddDialogTasksComponent,
+    AddDialogFunctionalitiesComponent,
+    EditDialogTasksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+    MatIconModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatTreeModule,
+    MatDialogModule,
     FormsModule,
-    NgbModule,
-    ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    NgbModule
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -76,16 +76,17 @@ export class HomeComponent implements OnInit {
   goToAddFunctionality() {
     //this.router.navigate(['AddFunctionality']);
     
-  }
+  };
 
-  showViewFunctionality(){
+  showViewFunctionality(functionalityId: number){
     this.viewHidden = !this.viewHidden;
-  }
+    this.Id = functionalityId;
+  };
 
   viewFunctionality() {
     this.isHiddenMain = !this.isHiddenMain;
     this.isHidden = !this.isHidden;
-  }
+  };
 
 
   // deleteFunctionalityConfirmation(functionality: any){

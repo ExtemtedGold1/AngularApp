@@ -1,0 +1,10 @@
+<div class="add-task-inside">
+  <h1 class="title">Add task</h1>
+  <div>
+    <input type="text" [(ngModel)]="nameOfTask" placeholder="Task Name" />
+  </div>
+  <div class="add-task-buttons">
+    <button class="btn btn-outline-danger">Cancel</button>
+    <button class="btn btn-outline-success" (click)="addTask()">Save</button>
+  </div>
+</div>

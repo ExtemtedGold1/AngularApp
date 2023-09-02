@@ -6,10 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'AngularApp';
-  parentFunctionalityList: any[] =[];
-
-  handleFunctionalityListChange(updatedList: any[]) {
-    this.parentFunctionalityList = updatedList;
-  }
+  title = 'ManageMe';
 }

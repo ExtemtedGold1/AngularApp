@@ -1,0 +1,55 @@
+.left-sidebar {
+    border-right: 1px solid #dfe5ef;
+    box-shadow: inset 0 1px 2px rgba(90, 106, 133, 0.1);
+    min-height: 100vh;
+    min-width: 270px;
+  
+    h1 {
+      font-size: 30px;
+      color: #3b71ca !important;
+      font-weight: bold;
+      padding: 1rem;
+      margin: 0;
+    }
+  
+    .hide-menu {
+      color: rgb(42, 53, 71);
+      font-size: 12px;
+      font-weight: 500 !important;
+      margin-left: 15px;
+      text-transform: uppercase;
+    }
+  
+    .sidebar-nav {
+      ul {
+        list-style-type: none;
+        padding: 0rem;
+        margin: 1.6rem;
+  
+        .sidebar-link {
+          width: 100%;
+          display: block;
+          color: rgb(42, 53, 71);
+          text-decoration: none;
+          padding: 0.8rem;
+          margin-top: 10px;
+          border-radius: 8px;
+          font-size: 15px;
+          cursor: pointer;
+  
+          &:hover {
+            color: #3b71ca !important;
+            background-color: #d4e5ff;
+          }
+  
+          &:focus {
+            background-color: #3b71ca !important;
+          }
+        }
+      }
+  
+      @media screen and (max-width: 992px) {
+        position: fixed;
+      }
+    }
+  }

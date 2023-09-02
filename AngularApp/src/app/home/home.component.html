@@ -118,7 +118,7 @@
                         <td>
                             <button 
                                 class="btn btn-info" 
-                                (onclick)="showViewFunctionality()">
+                                (click)="showViewFunctionality(item.Id)">
                                 <i class="fas fa-eye view"></i>
                             </button>
                             <a href="#" [routerLink]="['./EditFunctionality', item.id ]" class="btn"><i class="fa fa-edit edit"></i></a>
