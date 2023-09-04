@@ -1,8 +1,8 @@
 export const projectDetails = [
     {
         id: 1,
-        title: 'P1',
-        description: 'P1 WSEI ',
+        title: 'Functionality List',
+        description: 'WSEI ',
         functionallities: [
             {
                 functionallityID: 1,

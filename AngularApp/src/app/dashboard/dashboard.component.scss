@@ -1,15 +1,18 @@
 .dashboard-container {
     display: flex;
     flex-direction: row;
+    background-color: #222;
+    color: white;
     }
     
     .dashboard-right-side {
+    color: white;
     height: 99vh;
     width: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
+    background-color: #222;
+    border: 1px solid #222;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
